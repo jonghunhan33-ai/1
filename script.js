@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
             whyUsLead: "단순한 공급업체를 넘어 귀사의 신뢰할 수 있는 파트너가 됩니다.",
             whyUsText: "우리는 단순히 제품을 배달하는 것이 아니라, 귀사의 성공적인 항해를 위한 파트너십을 구축합니다. 뛰어난 서비스, 신속한 대응, 그리고 타협 없는 품질로 귀사의 모든 요구를 충족시키기 위해 최선을 다합니다.",
             whyUsButton: "회사 소개",
+            goToServicesButton: "서비스 둘러보기", // 추가된 키
 
             // About Hero (about.html)
             aboutHeroDesc: "한국과 파나마를 잇는 글로벌 선박 보급 네트워크",
@@ -134,6 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
             whyUsLead: "We are more than just a supplier; we are your trusted partner.",
             whyUsText: "We don't just deliver products; we build partnerships for your successful voyage. We are committed to meeting all your needs with excellent service, rapid response, and uncompromising quality.",
             whyUsButton: "About Us",
+            goToServicesButton: "View Services", // 추가된 키
 
             // About Hero (about.html)
             aboutHeroDesc: "Global Ship Supply Network connecting Korea and Panama",
@@ -230,6 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
             whyUsLead: "Somos más que un proveedor; somos su socio de confianza.",
             whyUsText: "No solo entregamos productos; construimos asociaciones para su viaje exitoso. Estamos comprometidos a satisfacer todas sus necesidades con un servicio excelente, respuesta rápida y calidad inquebrantable.",
             whyUsButton: "Sobre Nosotros",
+            goToServicesButton: "Ver Servicios", // 추가된 키
 
             // About Hero (about.html)
             aboutHeroDesc: "Red Global de Suministro de Barcos que conecta Corea y Panamá",
@@ -326,6 +329,7 @@ document.addEventListener("DOMContentLoaded", () => {
             whyUsLead: "我們不僅是供應商；我們是您值得信賴的合作夥伴。",
             whyUsText: "我們不僅僅交付產品，我們還為您成功的航行建立合作夥伴關係。我們致力於提供卓越的服務、快速的響應和毫不妥協的質量，以滿足您的所有需求。",
             whyUsButton: "關於我們",
+            goToServicesButton: "查看服務", // 추가된 키
 
             // About Hero (about.html)
             aboutHeroDesc: "連接韓國和巴拿馬的全球船舶供應網絡",
@@ -430,10 +434,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // 5. Placeholder 업데이트
-        document.querySelector('select[name="inquiry_type"] option[disabled][selected]').textContent = data.phSelectOffice;
-        document.querySelector('input[name="name"]').placeholder = data.phName;
-        document.querySelector('input[name="email"]').placeholder = data.phEmail;
-        document.querySelector('textarea[name="message"]').placeholder = data.phMessage;
+        // Contact.html이 현재 페이지에 로드되어 있을 때만 실행
+        if (document.querySelector('select[name="inquiry_type"]')) {
+            document.querySelector('select[name="inquiry_type"] option[disabled][selected]').textContent = data.phSelectOffice;
+            document.querySelector('input[name="name"]').placeholder = data.phName;
+            document.querySelector('input[name="email"]').placeholder = data.phEmail;
+            document.querySelector('textarea[name="message"]').placeholder = data.phMessage;
+        }
     };
 
     // 초기 로드 시 저장된 언어 또는 기본값 (한국어) 적용
